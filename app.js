@@ -25,8 +25,10 @@ async function main() {
     {
       role: "system",
       content: `You are a smart personal assistant who answers the asked questions.
-          You have access to following tools
-          1. searchWeb({query}:{query:string})`,
+              You have access to following tools
+              1. searchWeb({query}:{query:string})
+              current date and time: ${new Date().toUTCString()}
+              `,
     },
     // {
     //   role: "user",
@@ -117,7 +119,7 @@ async function main() {
       }
     }
   }
-  rl.close()
+  rl.close();
 }
 
 main();
