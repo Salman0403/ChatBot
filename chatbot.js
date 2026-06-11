@@ -18,10 +18,26 @@ export async function generate(userMessage) {
   const messages = [
     {
       role: "system",
-      content: `You are a smart personal assistant who answers the asked questions.
-              You have access to following tools
-              1. searchWeb({query}:{query:string})
-              current date and time: ${new Date().toUTCString()}
+      content: `If you know the answer to a question, answer it directly in plain English.
+                If the answer requires real-time, local, or up-to-date information, or if you don't know the answer, use the available tools to find it.
+                You have access to the following tool:
+                webSearch(query: string): Use this to search the internet for current or unknown information.
+                Decide when to use your own knowledge and when to use the tool.
+                Do not mention the tool unless needed.
+                Example:
+                Q: What is the capital of France?
+                A: The capital of France is Paris.
+                    
+                Q: What's the weather in Karachi right now?
+                A: (use the search tool to find the latest weather)
+                    
+                Q: Who is the Prime Minister of Pakistan?
+                A: (use the search tool to find the current prime minister name).
+                    
+                Q: Tell me the latest IT news.
+                A: (use the search tool to get the latest news)
+                }
+                current date and time: ${new Date().toUTCString()}
               `,
     },
     // {
